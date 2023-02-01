@@ -44,10 +44,11 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   padding: 0 36px;
-  overlow-x: hidden;
+  overflow-x: hidden;
 `;
 
 const Logo = styled.img`
+cursor: pointer;
   width: 80px;
 `;
 
