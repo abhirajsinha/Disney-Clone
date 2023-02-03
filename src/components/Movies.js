@@ -1,26 +1,28 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { selectMovies } from '../features/movie/movieSlice';
+import { useSelector } from 'react-redux';
 
 function Movies() {
-  return (
-    <Container>
-      <h4>Recommended for You</h4>
-      <Content>
-        <Wrap>
-          <img src="/images/viewers-marvel.png" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-marvel.png" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-marvel.png" />
-        </Wrap>
-        <Wrap>
-          <img src="/images/viewers-marvel.png" />
-        </Wrap>
-      </Content>
-    </Container>
-  );
+    const movies = useSelector(selectMovies);
+
+    return (
+        <Container>
+            <h4>Recommended for You</h4>
+            <Content>
+                {movies &&
+                    movies.map((movie) => (
+                        <Wrap key={movie.id}>
+                            <Link to={`/details/${movie.id}`}>
+                                <img src={movie.cardImg} alt="Img" />
+                            </Link>
+                        </Wrap>
+                    ))
+                }
+            </Content>
+        </Container>
+    )
 }
 
 export default Movies;
@@ -29,7 +31,6 @@ const Container = styled.div``;
 
 const Content = styled.div`
 cursor: pointer;
-
   display: grid;
   grid-gap: 25px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -45,7 +46,7 @@ const Wrap = styled.div`
 
   img {
     width: 100%;
-    heigth: 100%;
+    height: 100%;
     object-fit: cover;
   }
   &:hover {

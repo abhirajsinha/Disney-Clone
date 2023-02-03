@@ -51,7 +51,7 @@ const Wrap = styled.div`
   cursor: pointer;
   img {
     border: 4px solid transparent;
-    border-raius: 4px;
+    border-radius: 4px;
     width: 100%;
     height: 100%;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,

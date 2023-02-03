@@ -1,42 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import db from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
-function Details() {
+const Details = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState({});
+
+  const fetchMovie = async (ID) => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "movies"));
+      querySnapshot.forEach((doc) => {
+        if (doc.id === ID) {
+          return setMovie(doc.data());
+        }
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchMovie(id);
+
+    return () => {
+      setMovie({});
+    };
+  }, [id]);
+
+  console.log(movie);
+
   return (
     <Container>
-      <Background>
-        <img src="/images/viewers-marvel.png" />
-      </Background>
-      <ImgTitle>
-        <img src="/images/viewers-starwars.png" />
-      </ImgTitle>
-      <Controls>
-        <PlayButton>
-          <img src="/images/play-icon-black.png" />
-          <span>Play</span>
-        </PlayButton>
-        <TrailerButton>
-          <img src="/images/play-icon-white.png" />
-          <span>Trailer</span>
-        </TrailerButton>
-        <AddButton>
-          <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-          <img src="/images/group-icon.png" />
-        </GroupWatchButton>
-      </Controls>
-      <SubTitle>2018 7m Family, Fantasy</SubTitle>
-      <Description>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic
-      </Description>
+      {movie && (
+        <>
+          <Background>
+            <img src={movie.backgroundImg} alt="Background" />
+          </Background>
+
+          <ImgTitle>
+            <img src={movie.titleImg} alt="Title" />
+          </ImgTitle>
+
+          <Controls>
+            <PlayButton>
+              <img src="/images/play-icon-black.png" alt="" />
+              <span>PLAY</span>
+            </PlayButton>
+            <TrailerButton>
+              <img src="/images/play-icon-white.png" alt="" />
+              <span>TRAILER</span>
+            </TrailerButton>
+            <AddButton>
+              <span>+</span>
+            </AddButton>
+            <GroupWatchButton>
+              <img src="/images/group-icon.png" alt="" />
+            </GroupWatchButton>
+          </Controls>
+
+          <SubTitle>{movie.subTitle}</SubTitle>
+
+          <Description>{movie.description}</Description>
+        </>
+      )}
     </Container>
   );
-}
+};
 
 export default Details;
 

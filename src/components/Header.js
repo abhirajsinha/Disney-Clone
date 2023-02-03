@@ -48,7 +48,7 @@ const Nav = styled.div`
 `;
 
 const Logo = styled.img`
-cursor: pointer;
+  cursor: pointer;
   width: 80px;
 `;
 
@@ -88,8 +88,8 @@ const NavMenu = styled.div`
         transform: scaleX(0);
       }
     }
-    &:hover{
-      span:after{
+    &:hover {
+      span:after {
         transform: scaleX(1);
         opacity: 1;
       }
