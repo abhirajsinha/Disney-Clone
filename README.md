@@ -13,17 +13,17 @@ Please note that this website is for educational purposes only and is intended t
 
 # Libraries/Technologies used
 
-![Html](../disney-plus/Markdown/html.gif)
-<img src="../disney-plus/Markdown/css.png" alt="alt text" width="50" height="50">
-![Js](../disney-plus/Markdown/js.gif)
-<img src="../disney-plus/Markdown/react.png" alt="alt text" width="50" height="50">
-<img src="../disney-plus/Markdown/firebase.png" alt="alt text" width="50" height="50">
+![Html](./html.gif)
+<img src="./css.png" alt="alt text" width="50" height="50">
+![Js](./js.gif)
+<img src="./react.png" alt="alt text" width="50" height="50">
+<img src="./firebase.png" alt="alt text" width="50" height="50">
 
 # Screenshots
 
-![Login](../disney-plus/Markdown/Login.png)
-![Home](../disney-plus/Markdown/Home.png)
-![Movies](../disney-plus/Markdown/Movies.png)
-![Details](../disney-plus/Markdown/Details.png)
+![Login](./Login.png)
+![Home](./Home.png)
+![Movies](./Movies.png)
+![Details](./Details.png)
 
 
