@@ -16,10 +16,27 @@ function imgSlider() {
   return (
     <Carousel {...settings}>
       <Wrap>
-        <img src="/images/slider-badging.jpg" />
+        <a>
+          <img src="/images/slider-badging.jpg" alt="" />
+        </a>
       </Wrap>
+
       <Wrap>
-        <img src="/images/slider-badag.jpg" />
+        <a>
+          <img src="/images/slider-scale.jpg" alt="" />
+        </a>
+      </Wrap>
+
+      <Wrap>
+        <a>
+          <img src="/images/slider-badag.jpg" alt="" />
+        </a>
+      </Wrap>
+
+      <Wrap>
+        <a>
+          <img src="/images/slider-scales.jpg" alt="" />
+        </a>
       </Wrap>
     </Carousel>
   );

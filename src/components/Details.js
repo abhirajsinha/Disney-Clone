@@ -3,71 +3,43 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import db from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import movies from "../movies.js";
 
-const Details = () => {
+function Details(props) {
   const { id } = useParams();
-  const [movie, setMovie] = useState({});
-
-  const fetchMovie = async (ID) => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "movies"));
-      querySnapshot.forEach((doc) => {
-        if (doc.id === ID) {
-          return setMovie(doc.data());
-        }
-      });
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchMovie(id);
-
-    return () => {
-      setMovie({});
-    };
-  }, [id]);
-
-  console.log(movie);
+  const index = id - 1;
 
   return (
-    <Container>
-      {movie && (
-        <>
-          <Background>
-            <img src={movie.backgroundImg} alt="Background" />
-          </Background>
-
-          <ImgTitle>
-            <img src={movie.titleImg} alt="Title" />
-          </ImgTitle>
-
-          <Controls>
-            <PlayButton>
-              <img src="/images/play-icon-black.png" alt="" />
-              <span>PLAY</span>
-            </PlayButton>
-            <TrailerButton>
-              <img src="/images/play-icon-white.png" alt="" />
-              <span>TRAILER</span>
-            </TrailerButton>
-            <AddButton>
-              <span>+</span>
-            </AddButton>
-            <GroupWatchButton>
-              <img src="/images/group-icon.png" alt="" />
-            </GroupWatchButton>
-          </Controls>
-
-          <SubTitle>{movie.subTitle}</SubTitle>
-
-          <Description>{movie.description}</Description>
-        </>
-      )}
-    </Container>
+    <>
+      <Container>
+        <Background>
+          <img alt="..." src={movies[index].backgroundImg} />
+        </Background>
+        <ImgTitle>
+          <img alt={movies[index].title} src={movies[index].titleImg} />
+        </ImgTitle>
+        <Controls>
+          <PlayButton>
+            <img src="/images/play-icon-black.png" alt="" />
+            <span>PLAY</span>
+          </PlayButton>
+          <TrailerButton>
+            <img src="/images/play-icon-white.png" alt="" />
+            <span>TRAILER</span>
+          </TrailerButton>
+          <AddButton>
+            <span>+</span>
+          </AddButton>
+          <GroupWatchButton>
+            <img src="/images/group-icon.png" alt="" />
+          </GroupWatchButton>
+        </Controls>
+        <SubTitle>{movies[index].subTitle}</SubTitle>
+        <Description>{movies[index].description}</Description>
+      </Container>
+    </>
   );
-};
+}
 
 export default Details;
 
