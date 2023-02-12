@@ -14,10 +14,10 @@ Please note that this website is for educational purposes only and is intended t
 # Libraries/Technologies used
 
 ![Html](./html.gif)
-<img src="./css.png" alt="alt text" width="50" height="50">
+<img src="./css.png" alt="CSS" width="50" height="50">
 ![Js](./js.gif)
-<img src="./react.png" alt="alt text" width="50" height="50">
-<img src="./firebase.png" alt="alt text" width="50" height="50">
+<img src="./react.png" alt="React" width="50" height="50">
+<img src="./firebase.png" alt="Firebase" width="50" height="50">
 
 # Screenshots
 
