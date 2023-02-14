@@ -1,18 +1,62 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { selectUserName, selectUserPhoto } from "../features/user/userSlice";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { auth, provider } from "../firebase";
+import {
+  selectUserName,
+  selectUserPhoto,
+  setSignOut,
+  setUserLogin,
+} from "../features/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { async } from "@firebase/util";
 
 function Header() {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        dispatch(
+          setUserLogin({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL,
+          })
+        );
+        navigate("/");
+      }
+    });
+  }, []);
+  const signIn = () => {
+    auth.signInWithPopup(provider).then((result) => {
+      let user = result.user;
+      dispatch(
+        setUserLogin({
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+        })
+      );
+      navigate("/");
+    });
+  };
+
+  const signOut = () => {
+    auth.signOut().then(() => {
+      dispatch(setSignOut());
+      navigate("/login");
+    });
+  };
 
   return (
     <Nav>
       <Logo src="/images/logo.svg"></Logo>
       {!userName ? (
         <LoginContainer>
-          <Login>Login</Login>
+          <Login onClick={signIn}>Login</Login>
         </LoginContainer>
       ) : (
         <>
@@ -42,7 +86,7 @@ function Header() {
               <span>Series</span>
             </a>
           </NavMenu>
-          <UserImg src="/images/Photo.jpeg"></UserImg>
+          <UserImg onClick={signOut} src={userPhoto} alt={userName}></UserImg>
         </>
       )}
     </Nav>
@@ -117,11 +161,11 @@ const UserImg = styled.img`
   cursor: pointer;
 `;
 
-const LoginContainer =  styled.div`
+const LoginContainer = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
-`
+`;
 
 const Login = styled.div`
   border: 1px solid #f9f9f9;
