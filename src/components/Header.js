@@ -26,7 +26,7 @@ function Header() {
             photo: user.photoURL,
           })
         );
-        navigate("/");
+        navigate("/home");
       }
     });
   }, []);
@@ -40,7 +40,7 @@ function Header() {
           photo: user.photoURL,
         })
       );
-      navigate("/");
+      navigate("/home");
     });
   };
 
