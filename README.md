@@ -25,5 +25,3 @@ Please note that this website is for educational purposes only and is intended t
 ![Home](./Home.png)
 ![Movies](./Movies.png)
 ![Details](./Details.png)
-
-
