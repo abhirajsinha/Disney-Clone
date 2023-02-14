@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/DisneyHotstar-Clone/static/css/main.9b600076.css",
+    "main.js": "/DisneyHotstar-Clone/static/js/main.ed3d3ddb.js",
+    "static/js/787.aa480c95.chunk.js": "/DisneyHotstar-Clone/static/js/787.aa480c95.chunk.js",
+    "static/media/slick.svg": "/DisneyHotstar-Clone/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/DisneyHotstar-Clone/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/DisneyHotstar-Clone/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/DisneyHotstar-Clone/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/DisneyHotstar-Clone/index.html",
+    "main.9b600076.css.map": "/DisneyHotstar-Clone/static/css/main.9b600076.css.map",
+    "main.ed3d3ddb.js.map": "/DisneyHotstar-Clone/static/js/main.ed3d3ddb.js.map",
+    "787.aa480c95.chunk.js.map": "/DisneyHotstar-Clone/static/js/787.aa480c95.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b600076.css",
+    "static/js/main.ed3d3ddb.js"
+  ]
+}
