@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 import movies from '../movies.js';
 
 function Movies() {
-    // const movies = useSelector(selectMovies);
-
     return (
         <Container>
             <h4>Recommended for You</h4>
