@@ -12,7 +12,7 @@ Please note that this website is for educational purposes only and is intended t
 4. Ready to launch 🚀!
 
 # Link
-https://disney-plus-unofficial.web.app/
+https://disneyhotstar-clone-5e025.web.app/
 
 # Libraries/Technologies used
 
